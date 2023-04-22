@@ -11,10 +11,19 @@
       <input type="text" name="name" >
       <input type="text" name="classno" >
       <input type="submit" value="提交" >
-      <input type="button" id="btnPost" value="异步提交">
+      <input type="button" onclick="postData()" id="btnPost" value="异步提交">
     </form>
-    <script !src="">
-        $(function (){
+    <script>
+
+        function postData(){
+            var form =$('form');
+            console.log(form.serialize());
+            $.post('/demo/add',form.serialize(),function (res){
+                console.log(res);
+        });
+        }
+
+/*        $(function (){
             $('#btnPost').click(function (){
                 var form =$('form');
                 console.log(form.serialize());
@@ -22,7 +31,7 @@
                     console.log(res);
                 });
             });
-        })
+        })*/
     </script>
 </body>
 </html>
