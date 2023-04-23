@@ -3,7 +3,7 @@ package com.example.demo.Usernoo;
 public class User {
     String name;
     int id;
-    String classno;
+    String ClassNo;
 
     public int getId() {
         return id;
@@ -13,12 +13,12 @@ public class User {
         this.id = id;
     }
 
-    public String getClassno() {
-        return classno;
+    public String getClassNo() {
+        return ClassNo;
     }
 
-    public void setClassno(String classno) {
-        this.classno = classno;
+    public void setClassNo(String ClassNo) {
+        this.ClassNo = ClassNo;
     }
 
     public String getName() {

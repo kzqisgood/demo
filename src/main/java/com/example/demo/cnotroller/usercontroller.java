@@ -21,14 +21,14 @@ public class usercontroller {
         User user = new User();
         user.setId(1);
         user.setName("李四");
-        user.setClassno("B2001");
+        user.setClassNo("B2001");
         model.addAttribute("user",user);
         List<User> list=new ArrayList<>();
         list.add(user);
         User user1 =new User();
         user1.setId(100);
         user1.setName("王五");
-        user1.setClassno("B1000");
+        user1.setClassNo("B1000");
         list.add(user1);
         model.addAttribute("users",list);
         model.addAttribute("users", UserCache.users);
