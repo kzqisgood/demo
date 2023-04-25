@@ -2,6 +2,8 @@ package com.example.demo.cnotroller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -11,14 +13,15 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Controller
+@RequestMapping("/file")
 public class uploadController {
 
-    @GetMapping("/UpLoading/index")
+    @GetMapping("/index")
     public  String index(){
-        return "index";
+        return "file/index";
     }
     @ResponseBody
-    @GetMapping("/UpLoading/UpLoading")
+    @PostMapping("/UpLoading")
     public String UpLoading(MultipartFile file){
         System.out.println("上传");
         SimpleDateFormat sdf = new SimpleDateFormat("yyyMMddHHmmss");
