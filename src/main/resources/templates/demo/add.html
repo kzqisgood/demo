@@ -1,15 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script th:src="@{/js/jquery-3.6.4.min.js}"></script>
 </head>
 <body>
-    <form action="/demo/add" method="post">
-      <input type="text" name="id" >
-      <input type="text" name="name" >
-      <input type="text" name="classno" >
+    <form id="form" action="/demo/add" method="post">
+      <input type="text" name="id" id="tbId">
+      <input type="text" name="name" id="tbName">
+      <input type="text" name="classNo" id="tbClassNo">
       <input type="submit" value="提交" >
+      <input type="button" id="btnPost" value="异步提交">
     </form>
+    <script>
+
+        function postData(){
+            var form =$('form');
+            console.log(form.serialize());
+            $.post('/demo/add',form.serialize(),function (res){
+                console.log(res);
+        });
+        }
+
+        $(function (){
+            $('#btnPost').click(function (){
+                var form =$('#form');
+                console.log(form.serialize());
+                var Id = $('#tbId').val();
+                var Name=$('#tbName').val();
+                var ClassNo = $('#tbClassNo').val();
+                var data = { Id:Id,Name:Name,ClassNo:ClassNo};
+                $.post('/demo/add',data,function (res){
+                    console.log(res);
+                });
+            });
+        })
+    </script>
 </body>
 </html>
