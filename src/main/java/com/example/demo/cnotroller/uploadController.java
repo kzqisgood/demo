@@ -38,5 +38,9 @@ public class uploadController {
         }
         return newName;
     }
+    @GetMapping("/layuiupload")
+    public  String layuiupload(){
+        return "file/layuiupload";
+    }
 }
 
